@@ -19,11 +19,13 @@
  }
 
  body {
-   height: 100vh
+   height: 100vh;
+   /* background: var(--azul); */
+
  }
 
  body::-webkit-scrollbar {
-   display: none
+   display: none;
  }
 
  header {
@@ -38,12 +40,12 @@
 
  .logo {
    font-weight: bolder;
-   font-size: 1.6rem
+   font-size: max(12px 2.6vw)
  }
 
  .logo::after {
    content: ".com";
-   font-size: 1rem
+   font-size: max(12px 2vw)
  }
 
  header h2 {
@@ -52,30 +54,28 @@
  }
 
  .tiempo {
-   font-size: 26px
+   font-size: max(12px, 1.6vw);
  }
 
  .container {
-   width: 90%;
-   margin: auto;
-   min-height: calc(100% - (var(--footerH) + var(--headerH)));
+   width: 100%;
+   height: calc(100% - (var(--headerH)));
    display: flex;
-   justify-content: center;
+   justify-content: start;
    align-items: center;
-   /* padding-top: 100px; */
    background: #fff;
    flex-direction: column;
-   overflow: hidden
+   overflow: hidden;
  }
 
  .textcontainer__container {
    padding: 10px 1rem;
-   width: 50%;
-   height: 65vh;
+   width: 80vw;
+   height: calc(75vh);
    flex-wrap: wrap;
    font-size: 1.2rem;
    display: flex;
-   box-shadow: inset #0876bc 0 0 10px;
+   /* box-shadow: inset #0876bc 0 0 10px; */
    border-radius: 25px;
    position: relative;
    overflow: hidden
@@ -86,7 +86,7 @@
    padding: 0 1rem 1rem 0;
    min-height: 50vh;
    flex-wrap: wrap;
-   font-size: 1.2rem;
+   font-size: max(12px, 2vw);
    display: flex;
    gap: 1.2rem 0;
    align-content: flex-start;
@@ -151,7 +151,9 @@
 
  [class^="info__modal"] {
    width: 600px;
-   min-height: 400px;
+   max-width: 90%;
+   min-height: 30vh !important;
+   max-height: 500px;
    border-radius: 25px;
    position: absolute;
    background: #fff;
@@ -163,7 +165,18 @@
    padding: 2rem;
    text-align: center;
    font-size: 1.5rem;
-   display: none
+   display: none;
+   /* overflow-y: auto; */
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+ }
+
+ .line {
+   height: .1px;
+   border: 1px solid;
  }
 
  [class^="info__modal"] .headtext {
@@ -183,6 +196,15 @@
 
  [class^="info__modal"] .ppm-container {
    color: #3cda7e
+ }
+
+ .ppm-container,
+ .err-container,
+ .time-container,
+ .presicion-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
  }
 
  .info__modalwin.active {
@@ -209,12 +231,11 @@
    font-weight: bolder;
    background: var(--azul);
    color: #fff;
-   position: fixed;
-   z-index: 100;
-   bottom: 0
+ 
  }
- footer a{
-  text-decoration:underline;
+
+ footer a {
+   text-decoration: underline;
  }
 
  @keyframes parpadeo {
